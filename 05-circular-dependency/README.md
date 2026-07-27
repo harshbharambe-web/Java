@@ -187,13 +187,4 @@ creation: Is there an unresolvable circular reference?
 > the two classes are still tightly coupled to each other. It's a
 > pragmatic fix for legacy code, not a best practice for new code.
 
-## 🔥 Gotchas / Trending points
 
-- Since Spring Boot 2.6, circular references are **disabled by default** —
-  even setter/field-based cycles now throw an error unless you explicitly
-  set `spring.main.allow-circular-references=true` in `application.properties`.
-  This was a deliberate move by the Spring team to **discourage** circular
-  dependencies rather than silently support them.
-- This is a *very* common interview question specifically because it tests
-  whether you understand **how DI actually happens internally** (not just
-  that "Spring injects stuff").

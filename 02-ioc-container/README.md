@@ -145,14 +145,3 @@ is built, not when you call `getBean()`.
 > refreshed/created (eager initialization). You can override this per-bean
 > with `@Lazy` to defer creation until first use.
 
-## 🔥 Gotchas / Trending points
-
-- `@Lazy` on a bean flips it from eager to lazy creation — useful for
-  expensive beans not needed immediately, but can hide config errors until
-  runtime (they'd normally surface at startup with eager loading).
-- The container doesn't just do DI — it's also the backbone for AOP proxies,
-  application events (`ApplicationEventPublisher`), and profile-based
-  bean selection (`@Profile`).
-- In Spring Boot, `SpringApplication.run()` internally creates and refreshes
-  an `ApplicationContext` for you — you rarely construct it manually like in
-  this demo, but it's exactly the same mechanism underneath.

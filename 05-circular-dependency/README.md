@@ -178,13 +178,3 @@ creation: Is there an unresolvable circular reference?
 > workaround, not a design fix; the real fix is usually to introduce a
 > third class/service that both depend on.
 
-**Q4. What error do you get for an unresolvable circular dependency?**
-> `BeanCurrentlyInCreationException` (often wrapped inside
-> `UnsatisfiedDependencyException`) at application startup.
-
-**Q5. Does `@Lazy` fully solve the underlying design problem?**
-> No — it defers the *symptom* (delays when the dependency is resolved) but
-> the two classes are still tightly coupled to each other. It's a
-> pragmatic fix for legacy code, not a best practice for new code.
-
-

@@ -158,20 +158,4 @@ Car is driving
 > - Fails fast at startup if a dependency is missing, instead of a `NullPointerException` at runtime
 > - Helps you *notice* circular dependencies immediately (Spring throws an error instead of silently working around it)
 
-**Q2. What's the difference between DI and a Factory pattern?**
-> Both decouple object creation from usage, but Factory is a design pattern you write yourself and call explicitly (`Factory.create()`), while DI is done *for* you by a framework/container based on configuration/annotations — you never call `new` or a factory method yourself.
-
-**Q3. Can Spring inject a dependency that doesn't have `@Component`?**
-> Not automatically — the dependency must itself be a Spring bean (registered via `@Component`, `@Bean`, XML config, etc.) unless you define it manually with `@Bean` in a `@Configuration` class.
-
-**Q4. What happens if two beans of the same interface type exist and you use constructor injection without qualifying?**
-> `NoUniqueBeanDefinitionException` — you must disambiguate using `@Qualifier` or `@Primary` (covered in [03-bean-annotations](../03-bean-annotations)).
-
-**Q5. Is field injection actually "wrong"?**
-> It works, but it's discouraged in production code for the testing/immutability reasons above. It's fine for quick prototypes/demos.
-
-## 🔥 Gotchas / Trending points
-
-- `@Autowired` is *not required* on a constructor if the class has **only one constructor** (Spring 4.3+) — but writing it explicitly is still good practice for readability.
-- Mixing all 3 injection types in one project is a code smell — pick constructor injection as default, use setter injection only for **optional** dependencies.
-- DI doesn't remove coupling entirely — it moves the coupling from "class knows the concrete implementation" to "class knows the interface." That's the tradeoff, and it's a good one.
+*

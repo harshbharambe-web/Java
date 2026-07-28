@@ -128,20 +128,3 @@ is built, not when you call `getBean()`.
 > instantiating, configuring, wiring, and managing the complete lifecycle of
 > beans.
 
-**Q3. Difference between `BeanFactory` and `ApplicationContext`?**
-> `BeanFactory` is the basic container (lazy init, DI only). `ApplicationContext`
-> extends it with eager singleton init by default, AOP support, event
-> publishing, internationalization, and easier integration with Spring Boot.
-> In real projects you almost always use `ApplicationContext`.
-
-**Q4. Is IoC unique to Spring?**
-> No — IoC is a general design principle (also seen in other frameworks/
-> languages). Spring is just a very popular *implementation* of it via its
-> IoC container. Dependency Injection is one way to implement IoC; Spring
-> also uses it for things like AOP proxies and event handling.
-
-**Q5. When are singleton beans actually created — at startup or on first use?**
-> By default, **at startup**, right when the `ApplicationContext` is
-> refreshed/created (eager initialization). You can override this per-bean
-> with `@Lazy` to defer creation until first use.
-

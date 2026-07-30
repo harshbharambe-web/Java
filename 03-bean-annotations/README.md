@@ -184,14 +184,3 @@ Paid via Stripe: 999.0
 > }
 > ```
 
-## 🔥 Gotchas / Trending points
-
-- `@Component` is meta-annotated on `@Service`/`@Repository`/`@Controller` —
-  Spring's scanner treats them the same, so technically you *could* use
-  `@Component` everywhere, but it hurts readability and you'd lose
-  `@Repository`'s exception translation.
-- Bean names default to the class name in camelCase unless overridden —
-  `@Component("myBean")` or `@Qualifier("myBean")` to be explicit.
-- `@Bean` methods inside `@Configuration` classes are proxied by CGLIB by
-  default so that calling one `@Bean` method from another still returns the
-  **same singleton instance** rather than creating a new object each time.

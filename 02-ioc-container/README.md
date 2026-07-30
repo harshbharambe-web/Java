@@ -116,15 +116,4 @@ Notice: `"Greeter bean created..."` prints **before** `"Context created..."` —
 proof the container eagerly creates singleton beans right when the context
 is built, not when you call `getBean()`.
 
-## 🎯 Interview Questions & Answers
-
-**Q1. What is Inversion of Control?**
-> A design principle where the control of creating and managing object
-> dependencies is transferred from the application code to a
-> framework/container. It's the "what" — DI is the "how."
-
-**Q2. What is the IoC Container in Spring?**
-> The runtime component (`ApplicationContext`/`BeanFactory`) responsible for
-> instantiating, configuring, wiring, and managing the complete lifecycle of
-> beans.
 

@@ -149,13 +149,3 @@ Petrol engine starting...
 Car is driving
 ```
 
-## 🎯 Interview Questions & Answers
-
-**Q1. Why is constructor injection preferred over field injection?**
-> - Makes fields `final` → immutable, thread-safe by design
-> - Dependencies are explicit and mandatory — object can't exist in a half-wired state
-> - Easy to unit test — just call `new Car(mockEngine)`, no Spring/reflection needed
-> - Fails fast at startup if a dependency is missing, instead of a `NullPointerException` at runtime
-> - Helps you *notice* circular dependencies immediately (Spring throws an error instead of silently working around it)
-
-*

@@ -159,22 +159,6 @@ creation: Is there an unresolvable circular reference?
    handle it. Also a band-aid — you're just letting Spring hide the design
    smell instead of fixing it.
 
-## 🎯 Interview Questions & Answers
-
-**Q1. Can Spring resolve circular dependencies?**
-> Yes, but only for **singleton-scoped beans using setter or field
-> injection**, via early exposure of a partially-constructed bean using its
-> internal 3-level cache. It **cannot** resolve circular dependencies for
-> **constructor injection** or **prototype-scoped** beans.
-
-**Q2. Why can't constructor injection resolve circular dependency?**
-> Because constructor injection requires the dependency to be **fully
-> available at the moment of instantiation** — there's no "raw, half-built"
-> object to expose early like there is with setter/field injection.
-
-**Q3. Is having a circular dependency a sign of bad design?**
-> Generally yes — it usually means two classes are too tightly coupled or a
-> responsibility is split awkwardly between them. `@Lazy` is a quick
-> workaround, not a design fix; the real fix is usually to introduce a
+ to introduce a
 > third class/service that both depend on.
 

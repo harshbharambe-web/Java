@@ -171,13 +171,7 @@ public class SingletonServiceFixed {
 > **does not track it further** — so destroy callbacks are never invoked
 > automatically. You're responsible for any cleanup.
 
-## 🔥 Gotchas / Trending points
 
-- `request`, `session`, `application`, `websocket` scopes require
-  `spring-web` and a proper web application context — using them in a
-  plain (non-web) app throws an error.
-- Scope mismatch (injecting a narrower-lived bean into a longer-lived one)
-  is one of the **most common real-world bugs** — always ask "when is this
   bean created, and does that match how I expect to use it?"
 - `@Scope("prototype")` beans are NOT managed for destruction by the
   container — if they hold resources (files, connections), you must close

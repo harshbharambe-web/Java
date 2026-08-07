@@ -145,20 +145,3 @@ Error creating bean with name 'serviceX': Requested bean is currently in
 creation: Is there an unresolvable circular reference?
 ```
 
-## 🛠 How to actually fix a circular dependency (not just work around it)
-
-1. **Best fix: redesign** — extract the shared logic both beans need into a
-   third bean/class, so neither depends on the other directly.
-2. **`@Lazy` on one of the constructor params** — delays resolution of that
-   dependency until it's first *used*, not at construction. Works but is a
-   band-aid, not a real fix:
-   ```java
-   public ServiceX(@Lazy ServiceY serviceY) { this.serviceY = serviceY; }
-   ```
-3. **Switch to setter/field injection** — lets Spring's cache mechanism
-   handle it. Also a band-aid — you're just letting Spring hide the design
-   smell instead of fixing it.
-
- to introduce a
-> third class/service that both depend on.
-

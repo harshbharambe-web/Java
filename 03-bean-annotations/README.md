@@ -104,30 +104,7 @@ public class StripeGateway implements PaymentGateway {
 }
 ```
 
-```java
-@Component
-public class CheckoutService {
-
-    private final PaymentGateway gateway;
-
-    // explicitly pick Stripe even though Razorpay is @Primary
-    public CheckoutService(@Qualifier("stripeGateway") PaymentGateway gateway) {
-        this.gateway = gateway;
-    }
-
-    public void checkout(double amount) {
-        gateway.pay(amount);
-    }
-}
-```
-
-> Note: the default bean name for `@Qualifier` is the **class name with a
-> lowercase first letter** (`StripeGateway` → `"stripeGateway"`), unless you
-> explicitly named it via `@Component("customName")`.
-
-### `MainApp.java`
-```java
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+t.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 

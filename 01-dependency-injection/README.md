@@ -126,26 +126,3 @@ public class CarFieldInjection {
 }
 ```
 
-### `MainApp.java`
-```java
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-
-@Configuration
-@ComponentScan(basePackages = "com.example") // scans for @Component classes
-public class MainApp {
-    public static void main(String[] args) {
-        var context = new AnnotationConfigApplicationContext(MainApp.class);
-        Car car = context.getBean(Car.class);
-        car.drive();
-    }
-}
-```
-
-**Expected output:**
-```
-Petrol engine starting...
-Car is driving
-```
-

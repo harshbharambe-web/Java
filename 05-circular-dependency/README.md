@@ -1,29 +1,5 @@
 # 05 — Circular Dependency
-
-## 🤔 What is it
-
-Bean A needs Bean B, and Bean B needs Bean A — a **cycle** in the
-dependency graph.
-
-```
-        ┌───────────┐          ┌───────────┐
-        │  Bean A     │ ───────► │  Bean B     │
-        │             │ ◄─────── │             │
-        └───────────┘          └───────────┘
-           needs B                needs A
-```
-
-This is usually a **design smell** (tight coupling / unclear responsibility
-boundaries), but Spring can resolve it in some cases and not others.
-
-## ⚙️ Does Spring resolve it? Depends on injection type.
-
-```
-┌─────────────────────┬───────────────────────────────────────────────────┐
-│ Injection type         │ Can Spring resolve the circular dependency?          │
-├─────────────────────┼───────────────────────────────────────────────────┤
-│ Field / Setter          │ ✅ YES (for singleton scope) — via 3-level cache      │
-│ Constructor             │ ❌ NO — throws BeanCurrentlyInCreationException      │
+eanCurrentlyInCreationException      │
 └─────────────────────┴───────────────────────────────────────────────────┘
 ```
 

@@ -102,18 +102,3 @@ public class MainApp {
     }
 }
 ```
-
-**Expected output:**
-```
-Before creating context - no beans exist yet
-Greeter bean created by the container
-Context created. Now fetching bean...
-Hello from the IoC container!
-Same instance? true
-```
-
-Notice: `"Greeter bean created..."` prints **before** `"Context created..."` —
-proof the container eagerly creates singleton beans right when the context
-is built, not when you call `getBean()`.
-
-

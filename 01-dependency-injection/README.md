@@ -108,19 +108,7 @@ public class CarSetter {
     }
 }
 ```
-
-### `CarFieldInjection.java` — Field Injection (easy but discouraged)
-```java
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
-@Component
-public class CarFieldInjection {
-
-    @Autowired
-    private Engine engine; // can't be final, harder to unit test without Spring/reflection
-
-    public void drive() {
+() {
         engine.start();
     }
 }

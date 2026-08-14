@@ -102,22 +102,5 @@ public class ServiceX {
 }
 ```
 
-```java
-@Component
-public class ServiceY {
-    private final ServiceX serviceX;
 
-    @Autowired
-    public ServiceY(ServiceX serviceX) { // needs X to even exist
-        this.serviceX = serviceX;
-    }
-}
-```
-
-Running this throws:
-```
-BeanCurrentlyInCreationException:
-Error creating bean with name 'serviceX': Requested bean is currently in
-creation: Is there an unresolvable circular reference?
-```
 

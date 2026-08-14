@@ -124,40 +124,6 @@ public class MainApp {
 Paid via Stripe: 999.0
 ```
 
-## 🎯 Interview Questions & Answers
 
-**Q1. Difference between `@Component` and `@Bean`?**
-> `@Component` is a class-level annotation picked up automatically via
-> classpath/component scanning — used for classes **you own**. `@Bean` is a
-> method-level annotation inside a `@Configuration` class, used when you
-> need manual control over object creation — especially for **third-party
-> classes** you can't annotate directly (like `ObjectMapper`, `RestTemplate`).
-
-**Q2. Difference between `@Component`, `@Service`, `@Repository`, `@Controller`?**
-> All four register a class as a Spring bean identically under the hood.
-> The differences are:
-> - Semantic clarity (self-documenting code / layered architecture)
-> - `@Repository` additionally enables automatic translation of
->   persistence-specific exceptions (like `SQLException`) into Spring's
->   unified `DataAccessException` hierarchy
-> - `@Controller` is recognized specially by Spring MVC for request mapping
-
-**Q3. What happens if you `@Autowired` an interface with 2+ implementations and don't use `@Qualifier`/`@Primary`?**
-> Spring throws `NoUniqueBeanDefinitionException` at context startup — it
-> can't decide which implementation to inject.
-
-**Q4. `@Qualifier` vs `@Primary` — when to use which?**
-> `@Primary` sets a **default** for when no other hint is given — good when
-> one implementation is clearly the "usual" choice. `@Qualifier` is for
-> **explicit, per-injection-point** selection — good when the choice varies
-> by context. If both are present, `@Qualifier` wins (it's more specific).
-
-**Q5. Can a `@Bean` method depend on another bean?**
-> Yes — just add it as a method parameter; Spring auto-injects it:
-> ```java
-> @Bean
-> public CheckoutService checkoutService(PaymentGateway gateway) {
->     return new CheckoutService(gateway);
-> }
 > ```
 

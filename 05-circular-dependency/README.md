@@ -82,25 +82,6 @@ public class MainApp {
 }
 ```
 
-**Output:**
-```
-ServiceA using com.example.ServiceB@...
-```
-No error — Spring quietly resolved the cycle using the early-exposure cache.
-
-### ❌ Fails: Constructor Injection
-
-```java
-@Component
-public class ServiceX {
-    private final ServiceY serviceY;
-
-    @Autowired
-    public ServiceX(ServiceY serviceY) { // needs Y to even exist
-        this.serviceY = serviceY;
-    }
-}
-```
 
 
 

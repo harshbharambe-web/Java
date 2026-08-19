@@ -108,22 +108,3 @@ t.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
-@ComponentScan(basePackages = "com.example")
-public class MainApp {
-    public static void main(String[] args) {
-        var context = new AnnotationConfigApplicationContext(MainApp.class);
-        CheckoutService checkout = context.getBean(CheckoutService.class);
-        checkout.checkout(999.0);
-    }
-}
-```
-
-**Expected output:**
-```
-Paid via Stripe: 999.0
-```
-
-
-> ```
-

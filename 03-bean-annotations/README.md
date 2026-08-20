@@ -95,16 +95,3 @@ public class RazorpayGateway implements PaymentGateway {
 }
 ```
 
-```java
-@Component
-public class StripeGateway implements PaymentGateway {
-    public void pay(double amount) {
-        System.out.println("Paid via Stripe: " + amount);
-    }
-}
-```
-
-t.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-

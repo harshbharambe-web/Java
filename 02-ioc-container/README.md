@@ -82,23 +82,3 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
-@ComponentScan(basePackages = "com.example")
-public class MainApp {
-    public static void main(String[] args) {
-        System.out.println("Before creating context - no beans exist yet");
-
-        ApplicationContext context = new AnnotationConfigApplicationContext(MainApp.class);
-        // ^ At this line, ALL singleton beans are already created (eager loading)
-
-        System.out.println("Context created. Now fetching bean...");
-
-        Greeter greeter = context.getBean(Greeter.class); // already created, just fetched
-        greeter.greet();
-
-        // proof it's the IoC container managing a single shared instance:
-        Greeter greeter2 = context.getBean(Greeter.class);
-        System.out.println("Same instance? " + (greeter == greeter2)); // true for singleton
-    }
-}
-```

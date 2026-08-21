@@ -77,21 +77,3 @@ public class AppConfig {
 }
 ```
 
-### `@Qualifier` and `@Primary` — resolving ambiguity
-
-```java
-public interface PaymentGateway {
-    void pay(double amount);
-}
-```
-
-```java
-@Component
-@Primary // default choice when no @Qualifier is specified
-public class RazorpayGateway implements PaymentGateway {
-    public void pay(double amount) {
-        System.out.println("Paid via Razorpay: " + amount);
-    }
-}
-```
-

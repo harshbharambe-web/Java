@@ -70,18 +70,6 @@ public class ServiceB {
 }
 ```
 
-```java
-@Configuration
-@ComponentScan(basePackages = "com.example")
-public class MainApp {
-    public static void main(String[] args) {
-        var context = new AnnotationConfigApplicationContext(MainApp.class);
-        ServiceA a = context.getBean(ServiceA.class);
-        a.doSomething(); // works fine
-    }
-}
-```
-
 
 
 

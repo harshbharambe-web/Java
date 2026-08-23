@@ -57,23 +57,4 @@ public class NotificationService {
 }
 ```
 
-```java
-// Option 2: @Bean - YOU control object creation, useful for 3rd-party classes
-// you don't own the source of (can't put @Component on them)
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-
-@Configuration
-public class AppConfig {
-
-    @Bean
-    public ObjectMapper objectMapper() {
-        // e.g. Jackson's ObjectMapper - you don't own this class,
-        // so @Component isn't an option. @Bean lets you register it manually.
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.registerModule(new JavaTimeModule());
-        return mapper;
-    }
-}
-```
-
+`

@@ -58,20 +58,5 @@ Its job:
 └───────────────────┴─────────────────────────────┴───────────────────────────────┘
 ```
 
-## 💻 Code — seeing the container in action
 
-### `Greeter.java`
-```java
-import org.springframework.stereotype.Component;
-
-@Component
-public class Greeter {
-    public Greeter() {
-        System.out.println("Greeter bean created by the container");
-    }
-    public void greet() {
-        System.out.println("Hello from the IoC container!");
-    }
-}
-```
 

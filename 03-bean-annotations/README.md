@@ -43,18 +43,6 @@ scanning picks them all up the same way. The difference is **semantic
 clarity** for readers + a couple of extra features (like `@Repository`'s
 exception translation).
 
-## 💻 Code
 
-### `@Component` vs `@Bean`
-
-```java
-// Option 1: @Component - Spring creates the object itself via classpath scanning
-@Component
-public class NotificationService {
-    public void notify(String msg) {
-        System.out.println("Notifying: " + msg);
-    }
-}
-```
 
 `
